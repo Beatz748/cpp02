@@ -34,3 +34,7 @@ Fixed::Fixed(Fixed &right)
 	std::cout << "Copy constructor called" << std::endl;
 	*this = right;
 }
+
+Fixed::operator<<
+{
+}
