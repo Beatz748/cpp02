@@ -35,6 +35,18 @@ Fixed::Fixed(Fixed &right)
 	*this = right;
 }
 
-Fixed::operator<<
+float Fixed::toFloat(void) const
 {
+	return ((float)roundf(value_ * (1 << bits_)));
+}
+
+int Fixed::toInt(void) const
+{
+	
+}
+
+std::ostream& operator<<(std::ostream& stream, Fixed& fixed)
+{
+	stream << fixed.toFloat();
+	return stream;
 }
