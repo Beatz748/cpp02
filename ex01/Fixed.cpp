@@ -6,6 +6,11 @@ Fixed::Fixed()
 	std::cout << "Default constructor called" << std::endl;
 }
 
+Fixed::Fixed(int const raw)
+{
+	value_ = raw << bits_;
+}
+
 Fixed::~Fixed()
 {
 	std::cout << "Destructor called" << std::endl;
@@ -42,7 +47,7 @@ float Fixed::toFloat(void) const
 
 int Fixed::toInt(void) const
 {
-	
+	return ((int)()value_ >> bits_);
 }
 
 std::ostream& operator<<(std::ostream& stream, Fixed& fixed)
