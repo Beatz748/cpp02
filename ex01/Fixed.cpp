@@ -27,14 +27,19 @@ int		Fixed::getRawBits(void) const
 	return (value_);
 }
 
-Fixed& Fixed::operator=(Fixed &right)
+Fixed& Fixed::operator=(const Fixed &right)
 {
 	std::cout << "Assignation operator called" << std::endl;
 	value_ = right.getRawBits();
 	return (*this);
 }
 
-Fixed::Fixed(Fixed &right)
+Fixed::Fixed(const float val)
+{
+	
+}
+
+Fixed::Fixed(const Fixed &right)
 {
 	std::cout << "Copy constructor called" << std::endl;
 	*this = right;
@@ -47,7 +52,7 @@ float Fixed::toFloat(void) const
 
 int Fixed::toInt(void) const
 {
-	return ((int)()value_ >> bits_);
+	return ((int)(value_ >> bits_));
 }
 
 std::ostream& operator<<(std::ostream& stream, Fixed& fixed)
