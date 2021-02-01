@@ -55,7 +55,7 @@ int Fixed::toInt(void) const
 	return ((int)(value_ >> bits_));
 }
 
-std::ostream& operator<<(std::ostream& stream, Fixed& fixed)
+std::ostream& operator<<(std::ostream& stream, Fixed const& fixed)
 {
 	stream << fixed.toFloat();
 	return stream;
