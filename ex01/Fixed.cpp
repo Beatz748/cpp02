@@ -8,6 +8,7 @@ Fixed::Fixed()
 
 Fixed::Fixed(int const raw)
 {
+	std::cout << "Int constructor called" << std::endl;
 	value_ = raw << bits_;
 }
 
@@ -30,13 +31,14 @@ int		Fixed::getRawBits(void) const
 Fixed& Fixed::operator=(const Fixed &right)
 {
 	std::cout << "Assignation operator called" << std::endl;
-	value_ = right.getRawBits();
+	value_ = right.value_;
 	return (*this);
 }
 
 Fixed::Fixed(const float val)
 {
-	
+	std::cout << "Float constructor called" << std::endl;
+	value_ = roundf(val * (1 << bits_));
 }
 
 Fixed::Fixed(const Fixed &right)
@@ -47,7 +49,7 @@ Fixed::Fixed(const Fixed &right)
 
 float Fixed::toFloat(void) const
 {
-	return ((float)roundf(value_ * (1 << bits_)));
+	return (((float)(value_) / (1 << bits_)));
 }
 
 int Fixed::toInt(void) const
